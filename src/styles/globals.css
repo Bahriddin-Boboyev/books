@@ -36,7 +36,6 @@ body {
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
-    /* background-size: contain; */
 
     font-family: var(--font-mulish);
 }
@@ -46,6 +45,22 @@ body {
 .search-field input::placeholder {
     font-size: 14px !important;
 }
+
+.search-field input {
+    padding-top: 12px;
+    padding-bottom: 12px;
+}
+.search-field .MuiInputBase-root {
+    margin-top: -5px;
+}
 .search-field fieldset {
-    border-color: transparent !important;
+    border-color: white;
+}
+
+.search-field .MuiInputBase-root:hover .MuiOutlinedInput-notchedOutline {
+    border-color: white;
+}
+
+.search-field .MuiInputBase-root.Mui-focused .MuiOutlinedInput-notchedOutline {
+    border-color: #1976d2;
 }
