@@ -1,7 +1,7 @@
 import React from 'react';
 import { Container, Grid, InputAdornment, IconButton, TextField } from '@mui/material';
 import { Logo, Search, Notification } from '@/assets';
-import { middleSpace, searchInputProp } from './style';
+import { searchInputProp } from './style';
 import Link from 'next/link';
 import { NavbarMenu } from './NavbarMenu';
 
@@ -9,15 +9,15 @@ export const Navbar = () => {
     return (
         <header className=" py-4">
             <Container>
-                <Grid container spacing={2}>
-                    <Grid item xs={5}>
-                        <Grid container spacing={2}>
-                            <Grid item xs={4}>
+                <Grid container spacing={2} justifyContent={'space-between'} alignItems={'center'}>
+                    <Grid item>
+                        <Grid container spacing={2} justifyContent={'space-between'} alignItems={'center'}>
+                            <Grid item>
                                 <Link href="/">
                                     <Logo />
                                 </Link>
                             </Grid>
-                            <Grid item xs={8}>
+                            <Grid item flex="1">
                                 <TextField
                                     fullWidth
                                     variant="outlined"
@@ -44,8 +44,8 @@ export const Navbar = () => {
                             </Grid>
                         </Grid>
                     </Grid>
-                    <Grid item sx={middleSpace}></Grid>
-                    <Grid item xs={2}>
+
+                    <Grid item>
                         <IconButton aria-label="notification">
                             <Notification />
                         </IconButton>

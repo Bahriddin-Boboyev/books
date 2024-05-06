@@ -7,7 +7,3 @@ export const searchInputProp = {
         },
     },
 };
-
-export const middleSpace = {
-    flex: 1,
-};
