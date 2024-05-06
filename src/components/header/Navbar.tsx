@@ -1,6 +1,7 @@
 import React from 'react';
 import { Container, Grid, InputAdornment, IconButton, TextField } from '@mui/material';
 import { Logo, Search, Notification } from '@/assets';
+import { middleSpace, searchInputProp } from './style';
 import Link from 'next/link';
 import { NavbarMenu } from './NavbarMenu';
 
@@ -26,15 +27,7 @@ export const Navbar = () => {
                                     type="search"
                                     size="small"
                                     className="search-field"
-                                    inputProps={{
-                                        style: { color: 'white', fontSize: '14px' },
-                                        sx: {
-                                            '&::placeholder': {
-                                                color: '#fefefe',
-                                                opacity: 0.64,
-                                            },
-                                        },
-                                    }}
+                                    inputProps={searchInputProp}
                                     InputProps={{
                                         startAdornment: (
                                             <InputAdornment position="start">
@@ -51,7 +44,7 @@ export const Navbar = () => {
                             </Grid>
                         </Grid>
                     </Grid>
-                    <Grid item sx={{ flex: 1 }}></Grid>
+                    <Grid item sx={middleSpace}></Grid>
                     <Grid item xs={2}>
                         <IconButton aria-label="notification">
                             <Notification />
