@@ -1,20 +1,10 @@
-'use client';
-
 import React from 'react';
-import { Container, Grid, InputAdornment, IconButton, TextField, Menu, MenuItem, Fade } from '@mui/material';
-import { Logo, Search, Notification, UserAvatar } from '@/assets';
-import '../../styles/globals.css';
+import { Container, Grid, InputAdornment, IconButton, TextField } from '@mui/material';
+import { Logo, Search, Notification } from '@/assets';
+import Link from 'next/link';
+import { NavbarMenu } from './NavbarMenu';
 
 export const Navbar = () => {
-    const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
-    const open = Boolean(anchorEl);
-    const handleClick = (event: React.MouseEvent<HTMLElement>) => {
-        setAnchorEl(event.currentTarget);
-    };
-    const handleClose = () => {
-        setAnchorEl(null);
-    };
-
     return (
         <header className=" py-4">
             <Container>
@@ -22,7 +12,9 @@ export const Navbar = () => {
                     <Grid item xs={5}>
                         <Grid container spacing={2}>
                             <Grid item xs={4}>
-                                <Logo />
+                                <Link href="/">
+                                    <Logo />
+                                </Link>
                             </Grid>
                             <Grid item xs={8}>
                                 <TextField
@@ -31,7 +23,7 @@ export const Navbar = () => {
                                     id="search"
                                     name="search"
                                     placeholder="Search for any training you want"
-                                    type="text"
+                                    type="search"
                                     size="small"
                                     className="search-field"
                                     inputProps={{
@@ -64,30 +56,8 @@ export const Navbar = () => {
                         <IconButton aria-label="notification">
                             <Notification />
                         </IconButton>
-                        <IconButton
-                            aria-label="notification"
-                            id="fade-button"
-                            aria-controls={open ? 'fade-menu' : undefined}
-                            aria-haspopup="true"
-                            aria-expanded={open ? 'true' : undefined}
-                            onClick={handleClick}
-                        >
-                            <UserAvatar />
-                        </IconButton>
-                        <Menu
-                            id="fade-menu"
-                            MenuListProps={{
-                                'aria-labelledby': 'fade-button',
-                            }}
-                            anchorEl={anchorEl}
-                            open={open}
-                            onClose={handleClose}
-                            TransitionComponent={Fade}
-                        >
-                            <MenuItem onClick={handleClose}>Profile</MenuItem>
-                            <MenuItem onClick={handleClose}>My account</MenuItem>
-                            <MenuItem onClick={handleClose}>Logout</MenuItem>
-                        </Menu>
+
+                        <NavbarMenu />
                     </Grid>
                 </Grid>
             </Container>
